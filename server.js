@@ -1,11 +1,20 @@
 const express = require('express');
-
 const app = express();
+const htmlRoutes = require('./routes/htmlroutes');
+const apiRoutes = require('./routes/apiroutes');
+const PORT = process.env.PORT || 4000;
 
-app.listen(4000)
-console.log("working")
+app.use(express.static("public"));
 
-app.get('/site', (req, res) => {
-    res.send("message test");
-    res.console.log("working");
+//middleware
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
+
+//applisten
+app.listen(PORT, () => {
+    console.log(`App listening on PORT ${PORT}`);
 });
+
+module.exports = app;
