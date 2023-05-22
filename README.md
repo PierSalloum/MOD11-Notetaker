@@ -16,7 +16,7 @@ References:
 
 Screenshot of the website:
 
-![Alt](/Notetaker/screenshot.png)
+![Alt](/screenshot.png)
 
 License:
 
